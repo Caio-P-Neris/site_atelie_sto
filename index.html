@@ -236,8 +236,8 @@ Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conheciment
         </div>
       </div>
     </div>
-    <div class="w-full h-full object-fill bg-gray-200">
-        <img src="imgs/processo.jpg" class="w-full h-full object-cover"  alt="foto de uma imagem durante o processo de criação">
+    <div class="max-w-2xl mx-auto px-6"> 
+        <img src="imgs/processo.jpg" class="w-full h-auto rounded-lg shadow-md" alt="foto do processo"> 
     </div>
   </section>
 
@@ -281,14 +281,15 @@ fetch("produtos.json")
 
     produtos.forEach((produto, index) => {
       const item = document.createElement("div");
-      item.className = "hidden duration-700 ease-in-out";
 
       if (index === 0) {
         item.setAttribute("data-carousel-item", "active");
-        item.classList.remove("hidden");
       } else {
         item.setAttribute("data-carousel-item", "");
+        item.classList.add("hidden");
       }
+
+      item.classList.add("duration-700", "ease-in-out");
 
       item.innerHTML = `
         <div class="absolute inset-0 flex flex-col items-center justify-between p-4">
@@ -324,17 +325,10 @@ fetch("produtos.json")
       </button>
     `);
 
-    // 🔥 INICIALIZAÇÃO MANUAL (ESSENCIAL)
-    const items = Array.from(
-      carousel.querySelectorAll("[data-carousel-item]")
-    ).map((el, position) => ({
-      position,
-      el
-    }));
-
-    new window.Flowbite.Carousel(carousel, items, {
-      interval: 4000
-    });
+    // 🔥 ISSO É O QUE FALTAVA
+    if (window.initCarousels) {
+      window.initCarousels();
+    }
   });
 </script>
 
