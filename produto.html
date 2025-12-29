@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ===== CARROSSEL ===== */
+    .carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 0.75rem;
+    }
+
+    .carousel-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      cursor: zoom-in;
+    }
+
+    .carousel-img.active {
+      opacity: 1;
+    }
+
+    /* ===== ZOOM ===== */
+    .zoom-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .zoom-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="bg-white shadow p-4 text-center font-bold text-xl">
+    <a href="catalogo.html" class="hover:underline">← Voltar ao catálogo</a>
+  </header>
+
+  <!-- ===== CONTEÚDO ===== -->
+  <main class="max-w-6xl mx-auto p-6">
+    <div id="produto-container" class="grid md:grid-cols-2 gap-10"></div>
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="bg-white border-t text-center p-4 text-sm text-gray-500">
+    © 2025 Ateliê Santo Antônio de Imagens Sacras — Todos os direitos reservados. Site desenvolvido por <a href="https://github.com/Caio-P-Neris">Caio Neris</a>
+
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const produtoId = params.get("id");
+
+    fetch("produtos.json")
+      .then(res => res.json())
+      .then(produtos => {
+        const produto = produtos.find(p => p.id === produtoId);
+        if (!produto) return;
+
+        const container = document.getElementById("produto-container");
+
+        /* ===== CARROSSEL ===== */
+        const carouselWrapper = document.createElement("div");
+        carouselWrapper.className = "space-y-4";
+
+        const carousel = document.createElement("div");
+        carousel.className = "carousel";
+
+        produto.imagens.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.className = "carousel-img" + (index === 0 ? " active" : "");
+          carousel.appendChild(img);
+
+          img.addEventListener("click", () => openZoom(src));
+        });
+
+        /* ===== SETAS ===== */
+        const prev = document.createElement("button");
+        prev.innerHTML = "❮";
+        prev.className =
+          "absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 rounded-full";
+
+        const next = document.createElement("button");
+        next.innerHTML = "❯";
+        next.className =
+          "absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 rounded-full";
+
+        carousel.appendChild(prev);
+        carousel.appendChild(next);
+
+        /* ===== BOLINHAS ===== */
+        const dots = document.createElement("div");
+        dots.className = "flex justify-center gap-2";
+
+        produto.imagens.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.className = "w-3 h-3 rounded-full bg-gray-400";
+          if (i === 0) dot.classList.replace("bg-gray-400", "bg-gray-800");
+          dots.appendChild(dot);
+        });
+
+        carouselWrapper.appendChild(carousel);
+        carouselWrapper.appendChild(dots);
+
+        /* ===== INFO ===== */
+        const info = document.createElement("div");
+        info.innerHTML = `
+          <h1 class="text-3xl font-serif mb-4">${produto.nome}</h1>
+
+          <p><strong>Altura:</strong> ${produto.altura || "Sob encomenda"}</p>
+
+          <p class="mt-6 text-gray-700">
+            ${produto.descricao || "Imagem sacra artesanal, produzida com atenção aos detalhes e acabamento refinado."}
+          </p>
+
+          <a href="https://wa.me/5511980354856?text=${encodeURIComponent(
+            "Olá! Gostaria de saber mais sobre a imagem: " + produto.nome
+          )}"
+             target="_blank"
+             class="inline-block mt-8 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition">
+            Falar no WhatsApp
+          </a>
+        `;
+
+        container.appendChild(carouselWrapper);
+        container.appendChild(info);
+
+        /* ===== LÓGICA ===== */
+        let index = 0;
+        const imgs = carousel.querySelectorAll(".carousel-img");
+        const dotEls = dots.querySelectorAll("button");
+        let autoplay = true;
+
+        function updateCarousel(i) {
+          imgs.forEach(img => img.classList.remove("active"));
+          dotEls.forEach(d => d.classList.replace("bg-gray-800", "bg-gray-400"));
+
+          imgs[i].classList.add("active");
+          dotEls[i].classList.replace("bg-gray-400", "bg-gray-800");
+        }
+
+        prev.onclick = () => {
+          index = (index - 1 + imgs.length) % imgs.length;
+          updateCarousel(index);
+        };
+
+        next.onclick = () => {
+          index = (index + 1) % imgs.length;
+          updateCarousel(index);
+        };
+
+        dotEls.forEach((dot, i) => {
+          dot.onclick = () => {
+            index = i;
+            updateCarousel(index);
+          };
+        });
+
+        setInterval(() => {
+          if (!autoplay) return;
+          index = (index + 1) % imgs.length;
+          updateCarousel(index);
+        }, 4000);
+
+        /* ===== ZOOM ===== */
+        function openZoom(src) {
+          autoplay = false;
+
+          const overlay = document.createElement("div");
+          overlay.className = "zoom-overlay";
+          overlay.innerHTML = `<img src="${src}" />`;
+
+          overlay.onclick = () => {
+            autoplay = true;
+            overlay.remove();
+          };
+
+          document.body.appendChild(overlay);
+        }
+      });
+  </script>
+
+</body>
+</html>

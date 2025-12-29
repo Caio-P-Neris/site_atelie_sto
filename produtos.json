@@ -1,0 +1,205 @@
+[
+  {
+    "id": "crucifixo_chagado",
+    "nome": "Cruxifixo de parede, Cristo Chagado",
+    "imagens": [
+      "imgs/cruxifixo_60cm_chagado/cruxifixo_capa.jpg",
+      "imgs/cruxifixo_60cm_chagado/cruxifixo1.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo2.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo3.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo4.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo5.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo6.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo7.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo8.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo9.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo10.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo11.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo12.jpg", "imgs/cruxifixo_60cm_chagado/cruxifixo13.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "Cruxifixo realista de parede, com Cristo Chagado. Pintura feita à mão."
+  },
+  {
+    "id": "gracas2",
+    "nome": "Nossa Senhora das Graças 60cm",
+    "imagens": [
+      "imgs/gracas2/gracas_capa.jpg",
+      "imgs/gracas2/gracas2.webp",
+      "imgs/gracas2/gracas1.webp",
+      "imgs/gracas2/gracas3.webp",
+      "imgs/gracas2/gracas4.jpg",
+      "imgs/gracas2/gracas5.jpg",
+      "imgs/gracas2/gracas6.webp"
+    ],
+    "altura": "60 cm",
+    "descricao": "Nossa Senhora das Graças muito detalhada."
+  },
+    {
+    "id": "gracas1",
+    "nome": "Nossa Senhora das Graças 20cm",
+    "imagens": [
+      "imgs/gracas1/gracas_capa.jpg",
+      "imgs/gracas1/gracas2.jpg",
+      "imgs/gracas1/gracas1.jpg"
+    ],
+    "altura": "20 cm",
+    "descricao": "Nossa Senhora das Graças."
+  },
+  {
+    "id": "teresinha",
+    "nome": "Santa Teresinha 60cm",
+    "imagens": [
+      "imgs/teresinha/teresinha_capa.jpg",
+      "imgs/teresinha/teresinha1.jpg",
+      "imgs/teresinha/teresinha2.webp",
+      "imgs/teresinha/teresinha3.jpg",
+      "imgs/teresinha/teresinha4.jpg",
+      "imgs/teresinha/teresinha5.jpg",
+      "imgs/teresinha/teresinha6.jpg",
+      "imgs/teresinha/teresinha7.jpg",
+      "imgs/teresinha/teresinha8.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "Santa Teresinha."
+  },
+  {
+    "id": "antonio",
+    "nome": "Santo Antônio 60cm",
+    "imagens": [
+      "imgs/antonio/antonio_capa.jpg",
+      "imgs/antonio/antonio1.jpg",
+      "imgs/antonio/antonio2.jpg",
+      "imgs/antonio/antonio3.jpg",
+      "imgs/antonio/antonio4.jpg",
+      "imgs/antonio/antonio5.jpg",
+      "imgs/antonio/antonio6.jpg",
+      "imgs/antonio/antonio7.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "Santo Antônio."
+  },
+  {
+    "id": "francisco",
+    "nome": "São Francisco das Chagas 60cm",
+    "imagens": [
+      "imgs/francisco/francisco_capa.jpg",
+      "imgs/francisco/francisco1.jpg",
+      "imgs/francisco/francisco2.jpg",
+      "imgs/francisco/francisco3.jpg",
+      "imgs/francisco/francisco4.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "São Francisco representado com as Santas Chagas de Cristo."
+  },
+  {
+    "id": "carlo",
+    "nome": "São Carlo Acutis",
+    "imagens": [
+      "imgs/carlo/carlo_capa.jpg",
+      "imgs/carlo/carlo1.jpg",
+      "imgs/carlo/carlo2.jpg",
+      "imgs/carlo/carlo3.jpg",
+      "imgs/carlo/carlo4.jpg"
+    ],
+    "altura": "30 cm",
+    "descricao": "Busto de São Carlo Acutis."
+  },
+  {
+    "id": "conceicao_portuguesa",
+    "nome": "Nossa Senhora da Imaculada Conceição, estilo português",
+    "imagens": [
+      "imgs/conceicao/conceicao_portuguesa_capa.jpg",
+      "imgs/conceicao/conceicao_portuguesa1.jpg",
+      "imgs/conceicao/conceicao_portuguesa2.jpg",
+      "imgs/conceicao/conceicao_portuguesa3.jpg"
+    ],
+    "altura": "30 cm",
+    "descricao": "Imagem de Nossa Senhora da Imaculada Conceição, no estilo da iconografia portuguesa produzida artesanalmente, com pintura manual."
+  },
+  {
+    "id": "conceicao_barroco",
+    "nome": "Nossa Senhora da Imaculada Conceição, estilo barroco",
+    "imagens": [
+      "imgs/conceicao_barroca/conceicao_barroca_capa.webp",
+      "imgs/conceicao_barroca/conceicao_barroca1.webp",
+      "imgs/conceicao_barroca/conceicao_barroca2.jpg"
+    ],
+    "altura": "28 cm",
+    "descricao": "Imagem de Nossa Senhora da Imaculada Conceição, no estilo barroco."
+  },
+  {
+    "id": "coracao",
+    "nome": "Sagrado Coração de Jesus",
+    "imagens": [
+      "imgs/coracao/coracao_capa.jpg",
+      "imgs/coracao/coracao1.jpg",
+      "imgs/coracao/coracao2.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "Imagem do Sagrado Coração de Jesus."
+  },
+  {
+    "id": "sebastiao",
+    "nome": "São Sebastião",
+    "imagens": [
+      "imgs/sebastiao/sebastiao_capa.jpg",
+      "imgs/sebastiao/sebastiao1.jpg",
+      "imgs/sebastiao/sebastiao2.jpg",
+      "imgs/sebastiao/sebastiao3.jpg",
+      "imgs/sebastiao/sebastiao4.jpg",
+      "imgs/sebastiao/sebastiao5.jpg",
+      "imgs/sebastiao/sebastiao6.jpg",
+      "imgs/sebastiao/sebastiao7.jpg",
+      "imgs/sebastiao/sebastiao8.jpg"     
+    ],
+    "altura": "60 cm",
+    "descricao": "Martírio de São Sebastião."
+  },
+  {
+    "id": "menino1",
+    "nome": "Menino Jesus 50cm",
+    "imagens": [
+      "imgs/menino1/menino_capa.webp",
+      "imgs/menino1/menino1.webp",
+      "imgs/menino1/menino2.webp",
+      "imgs/menino1/menino3.webp",
+      "imgs/menino1/menino4.webp"   
+    ],
+    "altura": "50 cm",
+    "descricao": "Menino Jesus 50cm."
+  },
+  {
+    "id": "menino2",
+    "nome": "Menino Jesus 20cm",
+    "imagens": [
+      "imgs/menino2/menino_capa.webp",
+      "imgs/menino2/menino1.webp",
+      "imgs/menino2/menino2.webp",
+      "imgs/menino2/menino3.webp",
+      "imgs/menino2/menino4.jpg"   
+    ],
+    "altura": "20 cm",
+    "descricao": "Menino Jesus 20cm."
+  },
+  {
+    "id": "crucifixo_limpo",
+    "nome": "Cruxifixo de parede 20 cm",
+    "imagens": [
+      "imgs/crucifixo_limpo/cruz_capa.jpg",
+      "imgs/crucifixo_limpo/cruz1.jpg",
+      "imgs/crucifixo_limpo/cruz2.jpg"  
+    ],
+    "altura": "20 cm",
+    "descricao": "Cruxifixo de parede 20cm."
+  },
+  {
+    "id": "desatadora",
+    "nome": "Nossa Senhora Desatadora de nós",
+    "imagens": [
+      "imgs/desatadora/desatadora_capa.webp",
+      "imgs/desatadora/desatadora1.webp",
+      "imgs/desatadora/desatadora2.webp"  
+    ],
+    "altura": "40 cm",
+    "descricao": "Imagem de Nossa Senhora Desatadora de nós."
+  },
+  {
+    "id": "misericordia",
+    "nome": "Jesus Cristo Misericordioso",
+    "imagens": [
+      "imgs/misericordia/misere.jpg"
+    ],
+    "altura": "60 cm",
+    "descricao": "Imagem de Jesus Cristo Misericordioso."
+  }
+]

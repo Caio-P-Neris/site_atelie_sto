@@ -1,0 +1,12 @@
+.btn.btn-instagram {
+  background-color: #E1306C !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.btn.btn-instagram:hover {
+  opacity: 0.9;
+  color: #fff !important;
+}
+
+

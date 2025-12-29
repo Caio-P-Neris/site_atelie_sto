@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo completo</title>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+    /* ===== CARROSSEL ===== */
+    .carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+
+    .carousel-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .carousel-img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="top-0 left-0 w-full bg-base border-b border-accent/20 z-50"><!--tirei fixed antes de top p ñ sobrepor -->
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="font-serif text-lg tracking-wide">Ateliê Santo Antônio - Catálogo Completo</span>
+      <ul class="flex space-x-6 text-sm">
+        <li><a href="index.html#inicio" class="hover:text-accent">Início</a></li>
+        <li><a href="index.html#atelie" class="hover:text-accent">O Ateliê</a></li>
+        <li><a href="index.html#processo" class="hover:text-accent">Processo</a></li>
+        <li><a href="index.html#contato" class="hover:text-accent">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CATÁLOGO ===== -->
+  <main class="max-w-7xl mx-auto p-6">
+    <div
+      id="catalogo-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+    ></div>
+  </main>
+
+  <!-- ===== RODAPÉ (mantenha o seu se já existir) ===== -->
+  <footer class="bg-white border-t text-center p-4 text-sm text-gray-500">
+    © 2025 Ateliê Santo Antônio de Imagens Sacras — Todos os direitos reservados. Site desenvolvido por <a href="https://github.com/Caio-P-Neris">Caio Neris</a>
+
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    fetch("produtos.json")
+      .then(res => res.json())
+      .then(produtos => {
+        const grid = document.getElementById("catalogo-grid");
+
+        produtos.forEach(produto => {
+          // CARD
+          const card = document.createElement("div");
+          card.className = "bg-white p-3 rounded shadow hover:shadow-lg transition";
+
+          // LINK
+          const link = document.createElement("a");
+          link.href = `produto.html?id=${produto.id}`;
+          link.className = "block";
+
+          // CARROSSEL
+          const carousel = document.createElement("div");
+          carousel.className = "carousel";
+
+          produto.imagens.forEach((src, index) => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = produto.nome;
+            img.className = "carousel-img" + (index === 0 ? " active" : "");
+            carousel.appendChild(img);
+          });
+
+          // TÍTULO
+          const titulo = document.createElement("h3");
+          titulo.textContent = produto.nome;
+          titulo.className = "mt-3 font-serif-semibold text-center";
+
+          // MONTA CARD
+          link.appendChild(carousel);
+          link.appendChild(titulo);
+          card.appendChild(link);
+          grid.appendChild(card);
+
+          // AUTOPLAY DO CARROSSEL
+          let index = 0;
+          const imagens = carousel.querySelectorAll(".carousel-img");
+
+          setInterval(() => {
+            imagens[index].classList.remove("active");
+            index = (index + 1) % imagens.length;
+            imagens[index].classList.add("active");
+          }, 3000);
+        });
+      })
+      .catch(err => {
+        console.error("Erro ao carregar produtos.json:", err);
+      });
+  </script>
+
+</body>
+</html>
