@@ -184,7 +184,7 @@ Em nosso ateliê todas as imagens sacras são feitas à mão, com cuidadoso trab
 
   <!-- O Ateliê -->
   <section id="atelie" class="py-24">
-    <h2 class="font-serif text-3xl mb-6">O Ateliê</h2>
+    <h2 class="font-serif text-3xl mb-6 text-center">O Ateliê</h2>
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
       <div class="w-full h-full object-fill bg-gray-200">
         <img src="imgs/atelie.jpg" class="w-full h-full object-cover"  alt="foto do dono do Ateliê trabalhando">
@@ -236,6 +236,9 @@ Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conheciment
         </div>
       </div>
     </div>
+    <div class="w-full h-full object-fill bg-gray-200">
+        <img src="imgs/processo.jpg" class="w-full h-full object-cover"  alt="foto de uma imagem durante o processo de criação">
+    </div>
   </section>
 
   <!-- Contato -->
@@ -271,26 +274,27 @@ Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conheciment
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
 
 <script>
-  fetch("produtos.json")
-    .then(res => res.json())
-    .then(produtos => {
-      const carousel = document.getElementById("home-carousel");
+fetch("produtos.json")
+  .then(res => res.json())
+  .then(produtos => {
+    const carousel = document.getElementById("home-carousel");
 
-      produtos.forEach((produto, index) => {
-        const item = document.createElement("div");
-        item.className = "hidden duration-700 ease-in-out";
+    produtos.forEach((produto, index) => {
+      const item = document.createElement("div");
+      item.className = "hidden duration-700 ease-in-out";
+
+      if (index === 0) {
+        item.setAttribute("data-carousel-item", "active");
+        item.classList.remove("hidden");
+      } else {
         item.setAttribute("data-carousel-item", "");
-
-        if (index === 0) {
-          item.classList.remove("hidden");
-        }
+      }
 
       item.innerHTML = `
         <div class="absolute inset-0 flex flex-col items-center justify-between p-4">
 
-          <!-- Imagem clicável -->
           <a href="produto.html?id=${produto.id}"
-            class="w-full h-[320px] flex items-center justify-center">
+             class="w-full h-[320px] flex items-center justify-center">
             <img
               src="${produto.imagens[0]}"
               class="max-h-full max-w-full object-contain"
@@ -298,7 +302,6 @@ Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conheciment
             />
           </a>
 
-          <!-- Nome do produto -->
           <h3 class="mt-4 font-serif text-lg text-gray-800 text-center">
             ${produto.nome}
           </h3>
@@ -306,22 +309,35 @@ Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conheciment
         </div>
       `;
 
-        carousel.appendChild(item);
-      });
-
-      carousel.insertAdjacentHTML("beforeend", `
-        <button type="button" data-carousel-prev
-          class="absolute top-1/2 left-4 -translate-y-1/2 z-30 bg-white/80 rounded-full p-2">
-          ❮
-        </button>
-
-        <button type="button" data-carousel-next
-          class="absolute top-1/2 right-4 -translate-y-1/2 z-30 bg-white/80 rounded-full p-2">
-          ❯
-        </button>
-      `);
+      carousel.appendChild(item);
     });
+
+    carousel.insertAdjacentHTML("beforeend", `
+      <button type="button" data-carousel-prev
+        class="absolute top-1/2 left-4 -translate-y-1/2 z-30 bg-white/80 rounded-full p-2">
+        ❮
+      </button>
+
+      <button type="button" data-carousel-next
+        class="absolute top-1/2 right-4 -translate-y-1/2 z-30 bg-white/80 rounded-full p-2">
+        ❯
+      </button>
+    `);
+
+    // 🔥 INICIALIZAÇÃO MANUAL (ESSENCIAL)
+    const items = Array.from(
+      carousel.querySelectorAll("[data-carousel-item]")
+    ).map((el, position) => ({
+      position,
+      el
+    }));
+
+    new window.Flowbite.Carousel(carousel, items, {
+      interval: 4000
+    });
+  });
 </script>
+
 
 </body>
 </html>
