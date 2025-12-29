@@ -130,8 +130,7 @@
       </h1>
 
       <p class="text-lg text-textmain/80 mb-10 max-w-xl">
-        Um breve texto introdutório sobre a missão do ateliê, a inspiração na fé
-        católica e o cuidado artesanal presente em cada obra.
+Em nosso ateliê todas as imagens sacras são feitas à mão, com cuidadoso trabalho de policromia e douramento. Nosso ateliê é inspirado na fé católica e na tradição da arte sacra, unindo técnica artesanal, oração e sensibilidade artística. Cada obra respeita diferentes estilos e linguagens, mantendo sempre o compromisso com a beleza, a devoção e o significado espiritual
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6
@@ -185,9 +184,9 @@
       <div>
         <h2 class="font-serif text-3xl mb-6">O Ateliê</h2>
         <p class="text-textmain/80 leading-relaxed">
-          Aqui você pode escrever um texto mais pessoal, contando a história do ateliê,
-          a motivação espiritual por trás do trabalho e a importância da arte sacra
-          como forma de expressão da fé.
+Este ateliê nasce da minha profunda admiração pelas imagens sacras, pelos diferentes estilos, técnicas e pela força espiritual que cada obra carrega. Desde o início, o trabalho é guiado pela fé e pelo desejo sincero de servir, entendendo a arte sacra não apenas como expressão artística, mas como um caminho de encontro com o sagrado. <br>
+Cada imagem é pensada e executada com o máximo de cuidado, dedicação e respeito à tradição, buscando sempre alcançar a maior beleza possível — não apenas estética, mas espiritual. A missão do ateliê é ajudar o devoto a se conectar com Deus, com os santos e com a própria fé por meio de imagens que falem ao coração, convidem à oração e acompanhem a vida espiritual de quem as acolhe.
+
         </p>
       </div>
     </div>
@@ -204,25 +203,27 @@
         <div>
           <h3 class="font-serif mb-2">Inspiração</h3>
           <p class="text-sm text-textmain/70">
-            Estudo da iconografia e tradição da Igreja.
+            Me inspiro na necessidade de toda imagem sacra receber uma pintura digna, buscando referências com profundidade e respeito. Estudo os diferentes períodos artísticos, pesquiso obras e artistas, visito museus e, quando necessário, também faço novas soluções. <br>
+Todo esse processo é guiado pelo desejo de honrar o sagrado, unindo conhecimento, sensibilidade e fé para que cada imagem expresse beleza, reverência e significado espiritual.
+
           </p>
         </div>
         <div>
           <h3 class="font-serif mb-2">Modelagem</h3>
           <p class="text-sm text-textmain/70">
-            Produção manual com atenção aos detalhes.
+           Nas minhas peças exclusivas, realizo a modelagem manual de cada detalhe em gesso, a partir de ideias próprias ou de referências cuidadosamente estudadas. O trabalho se adapta às mais diversas necessidades — de imagens a relicários — sempre respeitando as proporções, a expressividade e o sentido sagrado de cada obra, dentro das possibilidades e do alcance do ateliê.
           </p>
         </div>
         <div>
           <h3 class="font-serif mb-2">Acabamento</h3>
           <p class="text-sm text-textmain/70">
-            Pintura e finalização cuidadosa da peça.
+            O acabamento das peças é realizado com grande atenção aos detalhes e pode variar conforme cada obra. Utilizo olhos de vidro, bases marmorizadas, lágrimas e sangue com efeito realista, além de tintas de alta resistência, garantindo durabilidade e conservação por muitos anos. Cada escolha técnica é pensada para valorizar a expressividade, a beleza e a dignidade da imagem sacra.
           </p>
         </div>
         <div>
           <h3 class="font-serif mb-2">Entrega</h3>
           <p class="text-sm text-textmain/70">
-            Preparação respeitosa para envio ou entrega.
+            As entregas são realizadas por transportadoras. Cada peça é cuidadosamente embalada, utilizando proteção adequada e o melhor acondicionamento possível, garantindo que a obra chegue ao seu destino com segurança e preservando toda a integridade do trabalho artesanal.
           </p>
         </div>
       </div>
@@ -233,11 +234,13 @@
   <section id="contato" class="py-24 text-center">
     <h2 class="font-serif text-3xl mb-6">Contato</h2>
     <p class="max-w-xl mx-auto text-textmain/80 mb-8">
+      Você pode encomendar imagens sacras de todos os tipos, com representação de todos os santos e em diversos tamanhos. A pintura pode seguir o gosto e as referências do cliente ou ser desenvolvida por nós, sempre com cuidado e fidelidade artística. Trabalhamos com diferentes estilos, como o barroco, o neoclássico italiano e o português, entre outros. Todas as referências são bem-vindas e ajudam a tornar cada obra única. <br>
+    </br>
       Para encomendas, dúvidas ou mais informações sobre as imagens sacras,
       entre em contato pelos canais abaixo.
     </p>
     <p class="text-sm">
-      <a href="https://wa.me/5511980354856?text='Olá, visitei seu site e gostaria de mais informações'" title="click to open whatsapp chat"><button class="btn btn-success">
+      <a href="https://wa.me/5511980354856?text=Olá, visitei seu site e gostaria de mais informações" title="click to open whatsapp chat"><button class="btn btn-success">
         <i class="fa fa-whatsapp"></i> WhatsApp: (11) 98035-4856
         </button></a>
 
@@ -247,6 +250,9 @@
 
     </p>
   </section>
+
+  <div id="instafeed-widget"></div>
+  <script src="embedsocial.com" data-id="SEU_ID_DE_EMBED"></script>
 
   <!-- Footer -->
   <footer class="border-t border-accent/20 py-6 text-center text-sm text-textmain/60">
@@ -271,25 +277,26 @@
           item.classList.remove("hidden");
         }
 
-        item.innerHTML = `
+      item.innerHTML = `
+        <div class="absolute inset-0 flex flex-col items-center justify-between p-4">
+
+          <!-- Imagem clicável -->
           <a href="produto.html?id=${produto.id}"
-             class="absolute inset-0 flex flex-col items-center justify-between p-4"">
-
-            <div class="w-full h-[320px] flex items-center justify-center">
-              <img
-                src="${produto.imagens[0]}"
-                class="max-h-full max-w-full object-contain"
-                alt="${produto.nome}"
-              />
-            </div>
-
-            <h3 class="mt-4 font-serif text-lg text-gray-800 text-center">
-            ${produto.nome}
-            </h3>
-
-
+            class="w-full h-[320px] flex items-center justify-center">
+            <img
+              src="${produto.imagens[0]}"
+              class="max-h-full max-w-full object-contain"
+              alt="${produto.nome}"
+            />
           </a>
-        `;
+
+          <!-- Nome do produto -->
+          <h3 class="mt-4 font-serif text-lg text-gray-800 text-center">
+            ${produto.nome}
+          </h3>
+
+        </div>
+      `;
 
         carousel.appendChild(item);
       });
