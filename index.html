@@ -40,6 +40,11 @@
     html {
       scroll-behavior: smooth;
     }
+    [data-carousel-item] {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
   </style>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -179,10 +184,13 @@ Em nosso ateliê todas as imagens sacras são feitas à mão, com cuidadoso trab
 
   <!-- O Ateliê -->
   <section id="atelie" class="py-24">
+    <h2 class="font-serif text-3xl mb-6">O Ateliê</h2>
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="h-80 bg-gray-200"></div>
+      <div class="w-full h-full object-fill bg-gray-200">
+        <img src="imgs/atelie.jpg" class="w-full h-full object-cover"  alt="foto do dono do Ateliê trabalhando">
+      </div>
       <div>
-        <h2 class="font-serif text-3xl mb-6">O Ateliê</h2>
+
         <p class="text-textmain/80 leading-relaxed">
 Este ateliê nasce da minha profunda admiração pelas imagens sacras, pelos diferentes estilos, técnicas e pela força espiritual que cada obra carrega. Desde o início, o trabalho é guiado pela fé e pelo desejo sincero de servir, entendendo a arte sacra não apenas como expressão artística, mas como um caminho de encontro com o sagrado. <br>
 Cada imagem é pensada e executada com o máximo de cuidado, dedicação e respeito à tradição, buscando sempre alcançar a maior beleza possível — não apenas estética, mas espiritual. A missão do ateliê é ajudar o devoto a se conectar com Deus, com os santos e com a própria fé por meio de imagens que falem ao coração, convidem à oração e acompanhem a vida espiritual de quem as acolhe.
